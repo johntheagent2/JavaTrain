@@ -11,7 +11,7 @@ public class Main {
         Set<Integer> sharedSet = new HashSet<>();
 //        sharedSet = Collections.synchronizedSet(sharedSet);
         Map<Integer, Integer> sharedMap = new HashMap<>();
-//        sharedMap = Collections.synchronizedMap(sharedMap);
+        sharedMap = Collections.synchronizedMap(sharedMap);
         int n = 30;
 
         // Create four threads that add elements to the list

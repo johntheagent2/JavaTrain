@@ -4,8 +4,8 @@ import java.util.List;
 
 public class AddToList implements Runnable {
     private final List<Integer> sharedList;
-    private int n;
-    private int turn;
+    private final int n;
+    private final int turn;
 
     AddToList(List<Integer> sharedList, int n, int turn) {
         this.sharedList = sharedList;

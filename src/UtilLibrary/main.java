@@ -1,8 +1,6 @@
 package UtilLibrary;
 
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 
 class main{
@@ -115,6 +113,30 @@ class main{
         print(properties.getProperty("password"));
 
         properties.store(new FileWriter("test.txt"), "test");
+
+        printDevider();
+        System.out.println("XML loader");
+        FileInputStream xmlReader = new FileInputStream("test.xml");
+        Properties xmlProperties = new Properties();
+        try{
+            xmlProperties.loadFromXML(xmlReader);
+
+            xmlProperties.forEach((key, value) -> System.out.println(key + ": " + value));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        xmlProperties.setProperty("key3", "value3");
+        xmlProperties.setProperty("key4", "value4");
+
+        try{
+            FileOutputStream output = new FileOutputStream("test.xml");
+            xmlProperties.storeToXML(output, "Done stored");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
         printDevider();
 
         print("Resource Bundle");
